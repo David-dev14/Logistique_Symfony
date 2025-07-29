@@ -1,4 +1,5 @@
 
+
 #  Projet Logistique_Symfony
 
 ##  Présentation
@@ -53,34 +54,48 @@ pour installer composer, il faut se rendre sur le site : getcomposer.org
 | **Ubuntu**  | \`\`\`curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | <br> sudo -E bash
 sudo apt install symfony-cli |
 | **macOS**   | `brew install symfony-cli/tap/symfony-cli`                                                    |                                                                     |
-| **Windows** | [Télécharger l’exécutable](https://github.com/symfony-cli/symfony-cli/releases/latest)        |                                                                     |
+| **Windows** | [Télécharger l’exécutable](https://github.com/symfony-cli/symfony-cli/releases/latest)        |  
+|https://symfony.com/download
 
 ---
 Sous Windows, vous pouvez utiliser **[Scoop](https://scoop.sh/)**, un gestionnaire de paquets en ligne de commande, pour installer Composer et d'autres outils comme PHP ou Symfony CLI de façon plus rapide et centralisée.
+dans une fenetre PowerShell Installer Scoop :
+iwr -useb get.scoop.sh | iex
+Scoop va s’installer dans votre dossier utilisateur, sans besoin des droits admin.
+
+ 
 Installer Composer avec Scoop :
 
 scoop install composer
-
-https://scoop.sh/
 
 Vous pouvez également installer PHP, Symfony CLI, Node.js, etc. via Scoop :
 
 scoop install php <br>
 scoop install symfony-cli
 
+Vérifie que tout fonctionne :
+symfony -v
+
+Créer ton projet Symfony :
+symfony new logistique_symfony --webapp
+Cela va créer un dossier logistique_symfony/ avec toute la structure MVC Symfony préconfigurée (Twig, Doctrine, sécurité, etc.)
+
+Lance le serveur web local :
+symfony serve
+
 
 ##  Installation du projet
 
 ### 1. **Cloner le dépôt**
 
-```bash
+```terminal
 git clone https://github.com/nom-utilisateur/Logistique_Symfony.git
 cd Logistique_Symfony
 ```
 
 ### 2. **Installer les dépendances PHP**
 
-```bash
+```terminal
 composer install
 ```
 
@@ -88,7 +103,7 @@ composer install
 
 Copiez le fichier `.env` en `.env.local` :
 
-```bash
+```terminal
 cp .env .env.local
 ```
 
@@ -109,14 +124,14 @@ Avant d’exécuter les commandes Doctrine ci-dessous, vous devez créer manuell
 
 Cependant, ne créez aucun tableau (table) dans cette base : laissez-la vide, car ce sont les commandes Doctrine qui se chargeront de générer la structure (tables, colonnes, relations, etc.) à partir de vos entités PHP et fichiers de migration.
 
-```bash
+```terminal
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```
 
 ### 5. **Lancer le serveur local Symfony**
 
-```bash
+```terminal
 symfony serve
 ```
 
@@ -161,7 +176,7 @@ Accédez ensuite à votre application sur : `http://127.0.0.1:8000`
 
 ##  Commandes utiles
 
-```bash
+```terminal
 symfony server:start              # Lancer le serveur local
 php bin/console make:controller  # Générer un nouveau contrôleur
 php bin/console make:entity      # Créer une nouvelle entité
@@ -217,8 +232,5 @@ php bin/phpunit
 ```
 ## Licence
 
-Projet open-source – Licence libre.
-
-
-
+Projet  open-source – Licence libre.
 
